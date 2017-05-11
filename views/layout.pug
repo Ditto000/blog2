@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		meta(charset='UTF-8')
+		title My Site
+		link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		nav.navbar.navbar-default
+			.container
+				.navbar-header
+					a.navbar-brand(href='/') My Site
+				ul.nav.navbar-nav.navbar-right
+					li
+						a(href='/blog') Blog
+					li
+						a(href='/portfolio') Portfolio
+		.container
+			block body

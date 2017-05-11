@@ -1,0 +1,9 @@
+extends ../layout
+
+block body
+	h2 My Blossosososos
+	.list-group
+		each post in posts
+			a.list-group-item(href=`/blog/${post.slug}`)= post.title
+	div
+		a.btn.btn-primary.btn-lg(href='/blog/new') New Blog Post
