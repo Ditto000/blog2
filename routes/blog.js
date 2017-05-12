@@ -2,7 +2,7 @@ var express  = require('express');
 var pg       = require('pg');
 
 var router   = express.Router();
-var database = new pg.Pool({database: 'blog_with_database'});
+var database = new pg.Pool(process.env.DATABASE_URL);
 
 // Index.
 router.get('/', function(request, response) {
