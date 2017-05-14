@@ -4,9 +4,9 @@ block body
 	if post
 		h2= post.title
 		p= post.body
-		form(action='/delete', method='post')
+		form(action=`/blog/${post.slug}/delete`, method='post')
 			.form-group
-				input.btn.btn-danger.btn-lg(type='submit', value='Delete', name=post.slug)
+				input.btn.btn-danger.btn-lg(type='submit', value='Delete')
 	else
 		h2 Not Found
 		p That blog post does not exist.

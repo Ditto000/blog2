@@ -2,7 +2,7 @@ var express  = require('express');
 var pg       = require('pg');
 
 var router   = express.Router();
-var database = new pg.Pool(process.env.DATABASE_URL);
+var database = new pg.Pool({database: 'blog_with_database'});
 
 // Index.
 router.get('/', function(request, response) {
@@ -27,6 +27,13 @@ router.get('/new', function(request, response) {
 router.get('/:slug', function(request, response) {
 	database.query('SELECT * FROM posts WHERE slug = $1', [request.params.slug], function(error, result) {
 		response.render('blog/show', {post: result.rows[0]});
+	});
+});
+
+
+router.post('/:slug/delete', function(request, response){
+	database.query('DELETE FROM posts WHERE slug = $1', [request.params.slug], function(error, result){
+		response.redirect('/blog');
 	});
 });
 

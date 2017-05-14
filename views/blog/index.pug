@@ -1,7 +1,7 @@
 extends ../layout
 
 block body
-	h2 My Blossosososos
+	h2 Bulletin Board
 	.list-group
 		each post in posts
 			a.list-group-item(href=`/blog/${post.slug}`)= post.title
